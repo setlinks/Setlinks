@@ -1195,6 +1195,7 @@ define('ENGINE_DIR', ROOT_DIR . '/engine');
 @include (ENGINE_DIR . '/data/config.php');
 require_once ENGINE_DIR . '/classes/mysql.php';
 require_once ENGINE_DIR . '/data/dbconfig.php';
+require_once ROOT_DIR . '/engine/init.php';
 
 $dle_xmlrpc_server = new dle_xmlrpc_server();
 
