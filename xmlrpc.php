@@ -1188,6 +1188,29 @@ class dle_xmlrpc_server extends IXR_Server {
     }
 
 }
+function get_url($id) {
+
+        global $cat_info;
+
+        if( ! $id ) return;
+
+        $parent_id = $cat_info[$id]['parentid'];
+
+        $url = $cat_info[$id]['alt_name'];
+
+        while ( $parent_id ) {
+
+                $url = $cat_info[$parent_id]['alt_name'] . "/" . $url;
+
+                $parent_id = $cat_info[$parent_id]['parentid'];
+
+                if( $cat_info[$parent_id]['parentid'] == $cat_info[$parent_id]['id'] ) break;
+
+        }
+
+        return $url;
+}
+
 
 define('DATALIFEENGINE', true);
 define('ROOT_DIR', rtrim(dirname(__FILE__), '/'));
