@@ -1099,7 +1099,7 @@ class dle_xmlrpc_server extends IXR_Server {
         if ($config['allow_alt_url'] == "yes") {
             if ($row['flag'] and $config['seo_type']) {
                 if ($row['category'] and $config['seo_type'] == 2) {
-                    $full_link = $config['http_home_url'] . get_url($row['category']) . "/" . $row['id'] . "-" . $row['alt_name'] . ".html";
+                    $full_link = $config['http_home_url'] . get_category_url($row['category']) . "/" . $row['id'] . "-" . $row['alt_name'] . ".html";
                 } else {
                     $full_link = $config['http_home_url'] . $row['id'] . "-" . $row['alt_name'] . ".html";
                 }
@@ -1188,7 +1188,7 @@ class dle_xmlrpc_server extends IXR_Server {
     }
 
 }
-function get_url($id) {
+function get_category_url($id) {
 
         global $cat_info;
 
